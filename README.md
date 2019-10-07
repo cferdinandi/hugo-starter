@@ -35,3 +35,5 @@ Now you can make updates to the theme, add content, and so on, and see changes s
 ## Get Help
 
 This starter project is provide as-is to help you experiment with Hugo themes and how it works. Please consult [the official Hugo Documentation](https://gohugo.io/) with any questions.
+
+*__Note:__ if you open GitHub issues for this repo, they will be closed without response.*
