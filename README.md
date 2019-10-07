@@ -13,10 +13,25 @@ A barebones starter project and theme for learning Hugo. https://gohugo.io
 - An automatically updating copyright date in the footer.
 - A skip navigation link in the header.
 
-**Note Included:**
+**Not Included:**
 
 - CSS
 - JavaScript
 - Support of any kind
+
+
+
+## Getting Started
+
+1. [Install Hugo.](https://gohugo.io/getting-started/installing/)
+2. Download or clone this repository.
+3. In terminal, `cd` into the repository, then run `hugo server`.
+4. Visit the URL Hugo prints in the terminal to see your site.
+
+Now you can make updates to the theme, add content, and so on, and see changes show up live.
+
+
+
+## Get Help
 
 This starter project is provide as-is to help you experiment with Hugo themes and how it works. Please consult [the official Hugo Documentation](https://gohugo.io/) with any questions.
