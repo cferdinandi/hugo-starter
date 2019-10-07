@@ -1,0 +1,40 @@
+{{ partial "header.html" . }}
+
+{{ partial "content-page.html" . }}
+
+{{- $.Scratch.Set "pagecount" 0 -}}
+
+{{ $paginate := .Paginate .Pages }}
+{{ range $paginate.Pages }}
+
+	{{- $.Scratch.Set "pagecount" (add ($.Scratch.Get "pagecount") 1) -}}
+
+	{{ if or ( ne ( $.Scratch.Get "pubDate" ) ( .PublishDate.Format "200601" ) ) ( eq ( $.Scratch.Get "pagecount" ) 1 ) }}
+		<h2>{{ .PublishDate.Format "January 2006" }}</h2>
+	{{ end }}
+	{{ $.Scratch.Set "pubDate" ( .PublishDate.Format "200601" ) }}
+
+	<article>
+
+		<header>
+			<h3>
+				<a href="{{ .URL }}">{{ .Title }}</a>
+			</h3>
+			<time datetime="{{ .PublishDate }}" pubdate>{{ .PublishDate.Format "January 2, 2006" }}</time>
+		</header>
+
+		{{ .Summary }}
+
+	</article>
+
+{{ end }}
+
+{{ if gt $paginate.TotalPages 1  }}
+	<nav>
+		{{ if $paginate.HasPrev }}<a href="{{ $paginate.Prev.URL }}">&larr; Newer</a>{{ end }}
+		{{ if and $paginate.HasPrev $paginate.HasNext }}&nbsp;/&nbsp;{{ end }}
+		{{ if $paginate.HasNext }}<a href="{{ $paginate.Next.URL }}">Older &rarr;</a>{{ end }}
+	</nav>
+{{ end }}
+
+{{ partial "footer.html" . }}
